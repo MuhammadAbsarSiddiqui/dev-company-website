@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useThemeStore } from "@/stores/themeStore";
 import { MagneticButton } from "@/components/MagneticButton";
 
 export default function AboutPage() {

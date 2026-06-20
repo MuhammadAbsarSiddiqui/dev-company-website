@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useThemeStore } from "@/stores/themeStore";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,7 +17,6 @@ const links = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme, setCursorState } = useThemeStore();
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 100);

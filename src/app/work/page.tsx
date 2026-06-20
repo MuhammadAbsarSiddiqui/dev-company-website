@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -44,7 +45,7 @@ export default function WorkPage() {
   const setCursorState = useThemeStore((state) => state.setCursorState);
   
   const [activeCategory, setActiveCategory] = useState("All");
-  const [filteredProjects, setFilteredProjects] = useState(projects);
+  const filteredProjects = activeCategory === "All" ? projects : projects.filter(p => p.category === activeCategory);
   const pillRef = useRef<HTMLDivElement>(null);
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -69,12 +70,6 @@ export default function WorkPage() {
         duration: 0.5,
         ease: "expo.out"
       });
-    }
-
-    if (activeCategory === "All") {
-      setFilteredProjects(projects);
-    } else {
-      setFilteredProjects(projects.filter(p => p.category === activeCategory));
     }
   }, [activeCategory]);
 
