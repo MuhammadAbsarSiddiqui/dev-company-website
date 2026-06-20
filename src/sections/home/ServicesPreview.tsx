@@ -74,7 +74,7 @@ export function ServicesPreview() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full bg-[var(--bg-primary)]">
+    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
         
         {/* Header - Sticky on desktop */}

@@ -20,6 +20,18 @@ const anim: Variants = {
   })
 };
 
+const textAnim: Variants = {
+  initial: { opacity: 1 },
+  enter: { 
+    opacity: 0,
+    transition: { duration: 0.4, ease: "easeOut" }
+  },
+  exit: { 
+    opacity: 1,
+    transition: { duration: 0.4, delay: 0.4, ease: "easeIn" }
+  }
+};
+
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
@@ -33,19 +45,32 @@ export function PageTransition({ children }: { children: ReactNode }) {
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div key={pathname} className="w-full min-h-screen">
+      <motion.div 
+        key={pathname} 
+        className="w-full min-h-screen"
+        initial="initial"
+        animate="enter"
+        exit="exit"
+      >
         <div className="fixed inset-0 pointer-events-none z-[100] flex flex-col justify-start">
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
               custom={i}
               variants={anim}
-              initial="initial"
-              animate="enter"
-              exit="exit"
               className="w-full bg-[var(--bg-primary)] border-b border-[var(--border-strong)]"
             />
           ))}
+          
+          {/* Centered DevStudio Logo overlay during transition */}
+          <motion.div 
+            variants={textAnim}
+            className="absolute inset-0 flex items-center justify-center"
+          >
+            <span className="text-4xl md:text-6xl font-bold font-display tracking-[0.3em] uppercase text-[var(--text-primary)]">
+              DevStudio
+            </span>
+          </motion.div>
         </div>
         {children}
       </motion.div>

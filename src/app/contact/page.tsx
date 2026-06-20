@@ -16,7 +16,7 @@ export default function ContactPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full min-h-screen bg-[var(--bg-primary)] px-8 md:px-16 py-32">
+    <div ref={containerRef} className="w-full min-h-screen px-8 md:px-16 py-32">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
         <div className="w-full md:w-1/2">
           <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">

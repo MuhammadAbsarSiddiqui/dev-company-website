@@ -29,7 +29,7 @@ export function CTABanner() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 w-full bg-[var(--bg-primary)] border-t border-[var(--border)]">
+    <section ref={sectionRef} className="py-24 md:py-32 w-full border-t border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
         <div ref={containerRef} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-sm p-12 md:p-16 relative overflow-hidden">
           

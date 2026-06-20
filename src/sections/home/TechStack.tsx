@@ -41,7 +41,7 @@ export function TechStack() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 w-full bg-[var(--bg-primary)] overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-16 mb-20">
         <div ref={headerRef} className="max-w-3xl">
           <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
