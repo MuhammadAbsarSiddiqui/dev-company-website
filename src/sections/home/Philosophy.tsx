@@ -6,8 +6,6 @@ import { cn } from "@/lib/utils";
 
 export function Philosophy() {
   const sectionRef = useRef<HTMLElement>(null);
-  const labelRef = useRef<HTMLDivElement>(null);
-  const headingRef = useRef<HTMLHeadingElement>(null);
   const bodyRef = useRef<HTMLParagraphElement>(null);
   const mediaRef = useRef<HTMLDivElement>(null);
 
@@ -15,7 +13,7 @@ export function Philosophy() {
     if (!sectionRef.current) return;
     
     // Create GSAP Context to ensure proper cleanup in React Strict Mode
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,

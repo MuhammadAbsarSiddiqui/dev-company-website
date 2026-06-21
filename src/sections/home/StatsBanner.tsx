@@ -34,25 +34,25 @@ export function StatsBanner() {
         <div ref={containerRef} className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-8">
           <div className="flex flex-col gap-2 opacity-0">
             <div className="text-4xl md:text-5xl font-bold font-display text-[var(--text-primary)]">
-              <AnimatedCounter value={2} suffix="M+" />
+              <AnimatedCounter value={2} />M+
             </div>
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">Lines of Code</div>
           </div>
           <div className="flex flex-col gap-2 opacity-0">
             <div className="text-4xl md:text-5xl font-bold font-display text-[var(--text-primary)]">
-              <AnimatedCounter value={4} suffix="k+" />
+              <AnimatedCounter value={4} />k+
             </div>
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">Coffee Cups</div>
           </div>
           <div className="flex flex-col gap-2 opacity-0">
             <div className="text-4xl md:text-5xl font-bold font-display text-[var(--text-primary)]">
-              <AnimatedCounter value={25} suffix="+" />
+              <AnimatedCounter value={25} />+
             </div>
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">Global Clients</div>
           </div>
           <div className="flex flex-col gap-2 opacity-0">
             <div className="text-4xl md:text-5xl font-bold font-display text-[var(--text-primary)]">
-              <AnimatedCounter value={10} suffix="+" />
+              <AnimatedCounter value={10} />+
             </div>
             <div className="text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">Years Experience</div>
           </div>
