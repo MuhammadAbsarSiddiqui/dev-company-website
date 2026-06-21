@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { TransitionLink as Link } from "@/components/TransitionLink";
 import { useThemeStore } from "@/stores/themeStore";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -53,7 +53,7 @@ export function Navigation() {
               onMouseLeave={() => setCursorState("default")}
             >
               <span>{link.name}</span>
-              <span className="absolute top-full left-0 text-[var(--text-primary)]">{link.name}</span>
+              <span className="text-[var(--text-primary)]">{link.name}</span>
             </Link>
           ))}
           

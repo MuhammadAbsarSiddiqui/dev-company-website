@@ -56,17 +56,17 @@ export function TechStack() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-6 md:gap-8 select-none">
+      <div className="flex flex-col gap-6 md:gap-8 select-none mt-4">
         <div 
-          className="relative flex overflow-hidden w-full group"
+          className="relative flex overflow-hidden w-full group py-4 -my-4"
           onMouseEnter={() => setCursorState("none")}
           onMouseLeave={() => setCursorState("default")}
         >
-          <div className="animate-marquee flex gap-6 md:gap-8 hover:[animation-play-state:paused] shrink-0 w-max pr-6 md:pr-8">
+          <div className="animate-marquee flex gap-6 md:gap-8 hover:[animation-play-state:paused] shrink-0 w-max pr-6 md:pr-8 items-center">
             {[...row1, ...row1].map((item, i) => (
               <div 
                 key={`${item}-${i}`} 
-                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border)] bg-[var(--bg-secondary)] text-lg md:text-xl font-bold font-display text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-[color,border-color,transform,box-shadow] duration-300 cursor-none"
+                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border-strong)] bg-[var(--bg-primary)]/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-[var(--bg-secondary)] transition-all duration-300 cursor-none"
               >
                 {item}
               </div>
@@ -75,15 +75,15 @@ export function TechStack() {
         </div>
 
         <div 
-          className="relative flex overflow-hidden w-full group"
+          className="relative flex overflow-hidden w-full group py-4 -my-4"
           onMouseEnter={() => setCursorState("none")}
           onMouseLeave={() => setCursorState("default")}
         >
-          <div className="animate-marquee-reverse flex gap-6 md:gap-8 hover:[animation-play-state:paused] shrink-0 w-max pr-6 md:pr-8">
+          <div className="animate-marquee-reverse flex gap-6 md:gap-8 hover:[animation-play-state:paused] shrink-0 w-max pr-6 md:pr-8 items-center">
             {[...row2, ...row2].map((item, i) => (
               <div 
                 key={`${item}-${i}`} 
-                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border)] bg-[var(--bg-secondary)] text-lg md:text-xl font-bold font-display text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-lg transition-[color,border-color,transform,box-shadow] duration-300 cursor-none"
+                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border-strong)] bg-[var(--bg-primary)]/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-[var(--bg-secondary)] transition-all duration-300 cursor-none"
               >
                 {item}
               </div>

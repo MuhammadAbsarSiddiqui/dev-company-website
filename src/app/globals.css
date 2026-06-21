@@ -26,8 +26,8 @@
 
 :root {
   /* Light Theme */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #f1f5f9;
+  --bg-primary: #f1f5f9; /* Slate 100 Canvas */
+  --bg-secondary: #ffffff; /* Pure White Cards */
   --bg-tertiary: #e2e8f0;
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -36,6 +36,28 @@
   --accent-hover: #1d4ed8;
   --border: #e2e8f0;
   --border-strong: #cbd5e1;
+  
+  /* Liquid Silk Blobs (Light Mode) */
+  --blob-1: #94a3b8;
+  --blob-2: #cbd5e1;
+  --blob-3: #e2e8f0;
+
+  /* Voronoi Background Opacity */
+  --voronoi-opacity: 0.15;
+}
+
+@keyframes liquidMorph {
+  0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+.liquid-blob {
+  position: absolute;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: liquidMorph 8s ease-in-out infinite;
+  will-change: border-radius, transform;
 }
 
 [data-theme="dark"] {
@@ -50,6 +72,14 @@
   --accent-hover: #fca5a5;
   --border: #27272a;
   --border-strong: #3f3f46;
+
+  /* Liquid Silk Blobs (Dark Mode) */
+  --blob-1: #1e293b;
+  --blob-2: #334155;
+  --blob-3: #0f172a;
+
+  /* Voronoi Background Opacity */
+  --voronoi-opacity: 0.4;
 }
 
 /* Base resets & global styles */

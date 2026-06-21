@@ -14,69 +14,74 @@ export function Philosophy() {
   useEffect(() => {
     if (!sectionRef.current) return;
     
-    // Split heading into words
-    if (headingRef.current) {
-      const words = headingRef.current.innerText.split(' ');
-      headingRef.current.innerHTML = words.map(w => `<span class="inline-block overflow-hidden"><span class="word inline-block">${w}&nbsp;</span></span>`).join('');
-    }
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 85%",
-        once: true
-      }
-    });
-
-    // Typewriter label
-    if (labelRef.current) {
-      const text = labelRef.current.getAttribute("data-text") || "";
-      labelRef.current.innerText = "";
-      gsap.to(labelRef.current, { opacity: 1, duration: 0 }); // Make visible
-      
-      const charDelay = 0.03;
-      text.split('').forEach((char, i) => {
-        tl.to(labelRef.current, {
-          onStart: () => {
-            if (labelRef.current) labelRef.current.innerText += char;
-          },
-          duration: charDelay
-        }, i * charDelay);
+    // Create GSAP Context to ensure proper cleanup in React Strict Mode
+    let ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 85%",
+          once: true
+        }
       });
-      tl.add("labelDone");
-    }
 
-    tl.fromTo(headingRef.current?.querySelectorAll('.word') || [],
-      { opacity: 0, y: 40 },
-      { opacity: 1, y: 0, duration: 0.8, stagger: 0.03, ease: "power3.out" },
-      "labelDone-=0.2"
-    );
+      // Typewriter label
+      const labelChars = sectionRef.current?.querySelectorAll('.label-char');
+      if (labelChars?.length) {
+        tl.to(labelChars, { opacity: 1, duration: 0.01, stagger: 0.03 });
+        tl.add("labelDone");
+      }
 
-    tl.fromTo(bodyRef.current,
-      { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
-      "-=0.4"
-    );
+      // Heading Words
+      const words = sectionRef.current?.querySelectorAll('.word');
+      if (words?.length) {
+        tl.fromTo(words,
+          { opacity: 0, y: 40 },
+          { opacity: 1, y: 0, duration: 0.8, stagger: 0.03, ease: "power3.out" },
+          "labelDone-=0.2"
+        );
+      }
 
-    tl.fromTo(mediaRef.current,
-      { scale: 0.95, opacity: 0 },
-      { scale: 1, opacity: 1, duration: 1, ease: "power2.out" },
-      "-=0.6"
-    );
+      // Body text
+      if (bodyRef.current) {
+        tl.fromTo(bodyRef.current,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" },
+          "-=0.4"
+        );
+      }
+
+      // Code Block Media
+      if (mediaRef.current) {
+        tl.fromTo(mediaRef.current,
+          { scale: 0.95, opacity: 0 },
+          { scale: 1, opacity: 1, duration: 1, ease: "power2.out" },
+          "-=0.6"
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full">
+    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
         <div className="w-full md:w-1/2">
-          <div 
-            ref={labelRef} 
-            data-text="OUR PHILOSOPHY" 
-            className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0 h-4"
-          />
-          <h2 ref={headingRef} className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8">
-            We partner with ambitious teams to build software that matters.
+          
+          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 h-4 flex flex-wrap">
+            {"OUR PHILOSOPHY".split('').map((char, i) => (
+              <span key={i} className="label-char opacity-0">{char === " " ? "\u00A0" : char}</span>
+            ))}
+          </div>
+
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8">
+            {"We partner with ambitious teams to build software that matters.".split(' ').map((word, i) => (
+              <span key={i} className="inline-block overflow-hidden mr-[0.25em]" style={{ verticalAlign: 'top' }}>
+                <span className="word inline-block">{word}</span>
+              </span>
+            ))}
           </h2>
+
           <p ref={bodyRef} className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg opacity-0">
             No templates. No shortcuts. Every project is built from first principles, with obsessive attention to performance, design, and maintainability. From system architecture to micro-interactions, we ensure every detail of your product screams quality.
           </p>

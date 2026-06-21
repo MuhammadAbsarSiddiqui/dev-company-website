@@ -1,32 +1,33 @@
 "use client";
 
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import { useTransitionStore } from "@/stores/transitionStore";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const anim: Variants = {
   initial: { height: "20vh" },
-  enter: (i: number) => ({
+  open: (i: number) => ({
     height: "0vh",
     transition: { duration: 0.8, ease: [0.87, 0, 0.13, 1], delay: 0.05 * i }
   }),
-  exit: (i: number) => ({
+  closed: (i: number) => ({
     height: "20vh",
     transition: { duration: 0.8, ease: [0.87, 0, 0.13, 1], delay: 0.05 * i }
   })
 };
 
 const textAnim: Variants = {
-  initial: { opacity: 1 },
-  enter: { 
+  initial: { opacity: 0 },
+  open: { 
     opacity: 0,
     transition: { duration: 0.4, ease: "easeOut" }
   },
-  exit: { 
+  closed: { 
     opacity: 1,
     transition: { duration: 0.4, delay: 0.4, ease: "easeIn" }
   }
@@ -34,46 +35,47 @@ const textAnim: Variants = {
 
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const { isTransitioning, endTransition } = useTransitionStore();
 
-  // Refresh ScrollTrigger after route changes and animations to fix glitchy GSAP triggers
+  // When pathname changes, it means the new route has finished loading and mounted.
+  // We can now safely "open" the curtains.
   useEffect(() => {
+    endTransition();
+    
+    // Refresh GSAP ScrollTrigger after curtains open to fix layout bugs
     const timeout = setTimeout(() => {
       ScrollTrigger.refresh();
     }, 1000);
     return () => clearTimeout(timeout);
-  }, [pathname]);
+  }, [pathname, endTransition]);
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div 
-        key={pathname} 
-        className="w-full min-h-screen"
-        initial="initial"
-        animate="enter"
-        exit="exit"
-      >
-        <div className="fixed inset-0 pointer-events-none z-[100] flex flex-col justify-start">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              custom={i}
-              variants={anim}
-              className="w-full bg-[var(--bg-primary)] border-b border-[var(--border-strong)]"
-            />
-          ))}
-          
-          {/* Centered DevStudio Logo overlay during transition */}
-          <motion.div 
-            variants={textAnim}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <span className="text-4xl md:text-6xl font-bold font-display tracking-[0.3em] uppercase text-[var(--text-primary)]">
-              DevStudio
-            </span>
-          </motion.div>
-        </div>
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <div className="fixed inset-0 pointer-events-none z-100 flex flex-col justify-start">
+        {[...Array(5)].map((_, i) => (
+          <motion.div
+            key={i}
+            custom={i}
+            variants={anim}
+            initial="initial"
+            animate={isTransitioning ? "closed" : "open"}
+            className="w-full bg-bg-primary border-b border-border-strong"
+          />
+        ))}
+        
+        {/* Centered DevStudio Logo overlay during transition */}
+        <motion.div 
+          variants={textAnim}
+          initial="initial"
+          animate={isTransitioning ? "closed" : "open"}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        >
+          <span className="text-4xl md:text-6xl font-bold font-display tracking-[0.3em] uppercase text-text-primary">
+            DevStudio
+          </span>
+        </motion.div>
+      </div>
+      {children}
+    </>
   );
 }

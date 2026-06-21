@@ -127,7 +127,7 @@ export function Process() {
                       "w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold font-display transition-[border-color,color] duration-500 relative z-10 border-2 bg-[var(--bg-secondary)]",
                       isActive ? "border-[var(--text-primary)] text-[var(--text-primary)]" : "border-[var(--border-strong)] text-[var(--text-muted)]"
                     )}>
-                      {isActive ? step.num : "00"}
+                      {step.num}
                     </div>
                     {/* Glow effect */}
                     <div className={cn(

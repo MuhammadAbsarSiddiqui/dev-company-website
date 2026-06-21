@@ -31,22 +31,34 @@ export function CTABanner() {
   return (
     <section ref={sectionRef} className="py-24 md:py-32 w-full border-t border-[var(--border)]">
       <div className="max-w-7xl mx-auto px-8 md:px-16">
-        <div ref={containerRef} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-sm p-12 md:p-16 relative overflow-hidden">
+        <div ref={containerRef} className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-sm p-12 md:p-16 relative overflow-hidden group">
           
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-[150px] opacity-10 pointer-events-none translate-x-1/2 -translate-y-1/2" />
+          {/* Enhanced Background Effects */}
+          <div className="absolute inset-0 z-0 opacity-40 transition-opacity duration-1000 group-hover:opacity-70 pointer-events-none">
+             <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] rounded-full bg-[var(--liquid-2)] blur-[120px]" />
+             <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[var(--liquid-1)] blur-[100px]" />
+          </div>
           
           <div className="max-w-2xl relative z-10 opacity-0">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_10px_rgba(34,197,94,0.6)]" />
+              <span className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--text-muted)]">Available for new projects</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6 text-[var(--text-primary)]">
               Ready to build something extraordinary?
             </h2>
             <p className="text-xl text-[var(--text-secondary)] leading-relaxed">
-              Let&apos;s turn your complex problem into an elegant solution.
+              Let&apos;s turn your complex problem into an elegant, scalable solution.
             </p>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 relative z-10 shrink-0 opacity-0">
-            <MagneticButton variant="primary">Start a Project</MagneticButton>
-            <MagneticButton variant="secondary">Schedule a Call</MagneticButton>
+            <MagneticButton variant="primary" className="bg-[var(--text-primary)] !text-[var(--bg-primary)] border-transparent hover:scale-105 transition-transform">
+              Start a Project
+            </MagneticButton>
+            <MagneticButton variant="secondary" className="backdrop-blur-md bg-[var(--bg-primary)]/50 hover:bg-[var(--bg-primary)]/80 transition-colors">
+              Schedule a Call
+            </MagneticButton>
           </div>
         </div>
       </div>

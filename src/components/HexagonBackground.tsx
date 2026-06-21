@@ -24,8 +24,9 @@ export const HexagonBackground = memo(function HexagonBackground() {
       `}</style>
       
       <div 
-        className="hex-layer absolute opacity-40" 
+        className="hex-layer absolute transition-opacity duration-500" 
         style={{
+          opacity: "var(--voronoi-opacity)",
           top: "-208px",
           left: "-120px",
           width: "calc(100% + 240px)",

@@ -1,14 +1,41 @@
 "use client";
 
-import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { TransitionLink as Link } from "@/components/TransitionLink";
 import { ArrowRight } from "lucide-react";
 import { useThemeStore } from "@/stores/themeStore";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function Footer() {
   const setCursorState = useThemeStore((state) => state.setCursorState);
+  const textRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!textRef.current || !footerRef.current) return;
+    
+    gsap.fromTo(textRef.current, 
+      { y: 150 },
+      { 
+        y: -100, 
+        ease: "none",
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true
+        }
+      }
+    );
+  }, []);
 
   return (
-    <footer className="relative min-h-[40vh] bg-[var(--bg-secondary)] text-[var(--text-primary)] pt-24 pb-8 px-8 md:px-16 overflow-hidden border-t border-[var(--border)] mt-24">
+    <footer ref={footerRef} className="relative min-h-[40vh] bg-[var(--bg-secondary)] text-[var(--text-primary)] pt-24 pb-8 px-8 md:px-16 overflow-hidden border-t border-[var(--border)] mt-24">
       <div className="max-w-7xl mx-auto flex flex-col justify-between h-full relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
@@ -89,7 +116,7 @@ export function Footer() {
       </div>
       
       {/* Massive Background Logo */}
-      <div className="absolute bottom-[-10vw] right-[-5vw] text-[15vw] font-black tracking-tighter opacity-[0.03] select-none pointer-events-none font-display">
+      <div ref={textRef} className="absolute bottom-[-10vw] right-[-5vw] text-[15vw] font-black tracking-tighter opacity-[0.03] select-none pointer-events-none font-display">
         DEVSTUDIO
       </div>
     </footer>

@@ -40,12 +40,12 @@ export function CustomCursor() {
 
   useEffect(() => {
     if (cursorVariant === "button" || cursorVariant === "link") {
-      gsap.to(ringRef.current, { scale: 1.5, opacity: 0.5, duration: 0.3 });
+      gsap.to(ringRef.current, { scale: 1.5, opacity: 1.0, duration: 0.3 });
       if (cursorLabel) {
         gsap.to(textRef.current, { opacity: 1, scale: 1, duration: 0.3 });
       }
     } else {
-      gsap.to(ringRef.current, { scale: 1, opacity: 1, duration: 0.3 });
+      gsap.to(ringRef.current, { scale: 1, opacity: 0.6, duration: 0.3 });
       gsap.to(textRef.current, { opacity: 0, scale: 0.8, duration: 0.3 });
     }
   }, [cursorVariant, cursorLabel]);
@@ -58,7 +58,7 @@ export function CustomCursor() {
       />
       <div
         ref={ringRef}
-        className="fixed top-0 left-0 w-10 h-10 -ml-5 -mt-5 border border-white rounded-full mix-blend-difference pointer-events-none z-[99] flex items-center justify-center"
+        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 border border-white rounded-full mix-blend-difference pointer-events-none z-[99] flex items-center justify-center"
       >
         <div ref={textRef} className="opacity-0 scale-80 text-[10px] font-bold tracking-widest text-white uppercase whitespace-nowrap absolute">
           {cursorLabel}

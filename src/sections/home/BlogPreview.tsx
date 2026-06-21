@@ -53,6 +53,7 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
     const imgY = -(y / (rect.height / 2)) * 10;
 
     gsap.to(cardRef.current, {
+      transformPerspective: 1000,
       rotateX,
       rotateY,
       duration: 0.1,
@@ -95,7 +96,7 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[var(--bg-tertiary)] border border-[var(--border)] relative perspective-1000">
+      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[var(--bg-tertiary)] border border-[var(--border)] relative perspective-1000 pointer-events-none">
         <img 
           ref={imageRef}
           src={post.image} 
@@ -103,13 +104,13 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
           className="blog-card-image absolute inset-[-20px] w-[calc(100%+40px)] h-[calc(100%+40px)] object-cover" 
         />
       </div>
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">
+      <div className="flex flex-col gap-3 relative">
+        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-[var(--text-muted)] transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 absolute top-[-20px]">
           <span className="text-[var(--accent)]">{post.category}</span>
           <span className="w-1 h-1 rounded-full bg-[var(--border-strong)]" />
           <span>{post.date}</span>
         </div>
-        <h3 className="text-2xl font-bold font-display text-[var(--text-primary)] leading-snug transition-colors duration-300 group-hover:text-[var(--accent)]">
+        <h3 className="text-2xl font-bold font-display text-[var(--text-primary)] leading-snug transition-all duration-300 group-hover:text-[var(--accent)] group-hover:translate-y-2 mt-2">
           {post.title}
         </h3>
       </div>

@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export function AnimatedCounter({ value, suffix = "", prefix = "", decimals = 0 }: { value: number, suffix?: string, prefix?: string, decimals?: number }) {
+export function AnimatedCounter({ value, decimals = 0 }: { value: number, decimals?: number }) {
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -21,14 +21,14 @@ export function AnimatedCounter({ value, suffix = "", prefix = "", decimals = 0 
           ease: "expo.out",
           onUpdate: () => {
             if (ref.current) {
-              ref.current.innerText = prefix + target.val.toFixed(decimals) + suffix;
+              ref.current.innerText = target.val.toFixed(decimals);
             }
           }
         });
       },
       once: true
     });
-  }, [value, suffix, prefix, decimals]);
+  }, [value, decimals]);
 
-  return <span ref={ref} className="tabular-nums font-medium">0{suffix}</span>;
+  return <span ref={ref} className="tabular-nums font-medium">0</span>;
 }
