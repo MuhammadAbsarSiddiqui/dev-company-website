@@ -96,7 +96,7 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[var(--bg-tertiary)] border border-[var(--border)] relative perspective-1000 pointer-events-none">
+      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-bg-tertiary border border-border relative perspective-1000 pointer-events-none">
         <img 
           ref={imageRef}
           src={post.image} 
@@ -105,12 +105,12 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
         />
       </div>
       <div className="flex flex-col gap-3 relative">
-        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-[var(--text-muted)] transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 absolute top-[-20px]">
-          <span className="text-[var(--accent)]">{post.category}</span>
-          <span className="w-1 h-1 rounded-full bg-[var(--border-strong)]" />
+        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-text-muted transform translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 absolute top-[-20px]">
+          <span className="text-accent">{post.category}</span>
+          <span className="w-1 h-1 rounded-full bg-border-strong" />
           <span>{post.date}</span>
         </div>
-        <h3 className="text-2xl font-bold font-display text-[var(--text-primary)] leading-snug transition-all duration-300 group-hover:text-[var(--accent)] group-hover:translate-y-2 mt-2">
+        <h3 className="text-2xl font-bold font-display text-text-primary leading-snug transition-all duration-300 group-hover:text-accent group-hover:translate-y-2 mt-2">
           {post.title}
         </h3>
       </div>
@@ -163,29 +163,29 @@ export function BlogPreview() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full bg-[var(--bg-secondary)] border-t border-[var(--border)]">
+    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full bg-bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto">
         
         <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-2xl">
-            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
               LATEST INSIGHTS
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1] mb-6 opacity-0">
               Thoughts on Engineering.
             </h2>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed opacity-0">
+            <p className="text-lg text-text-secondary leading-relaxed opacity-0">
               Deep dives into system design, architecture, and the future of software.
             </p>
           </div>
           <div className="view-all-link opacity-0 pb-2">
             <Link 
               href="/blog" 
-              className="group flex items-center gap-2 text-[var(--text-primary)] font-bold tracking-widest text-xs uppercase"
+              className="group flex items-center gap-2 text-text-primary font-bold tracking-widest text-xs uppercase"
               onMouseEnter={() => setCursorState("link")}
               onMouseLeave={() => setCursorState("default")}
             >
-              <span className="border-b border-[var(--text-primary)] pb-1 transition-colors hover:text-[var(--accent)] hover:border-[var(--accent)]">Read the Blog</span>
+              <span className="border-b border-text-primary pb-1 transition-colors hover:text-accent hover:border-accent">Read the Blog</span>
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>

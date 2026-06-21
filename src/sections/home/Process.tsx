@@ -81,17 +81,17 @@ export function Process() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full bg-[var(--bg-secondary)] border-t border-[var(--border)] overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 px-8 md:px-16 w-full bg-bg-secondary border-t border-border overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         <div ref={headerRef} className="max-w-3xl mb-24">
-          <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+          <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
             HOW WE WORK
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1] mb-6 opacity-0">
             From Idea to Launch.
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed opacity-0">
+          <p className="text-lg text-text-secondary leading-relaxed opacity-0">
             Our 4-step development lifecycle engineered to deliver rapid, high-quality product rollouts.
           </p>
         </div>
@@ -106,9 +106,9 @@ export function Process() {
           </div>
 
           {/* Mobile Vertical Line */}
-          <div className="block md:hidden absolute top-[28px] bottom-0 left-[28px] w-[2px] bg-[var(--border-strong)] z-0">
+          <div className="block md:hidden absolute top-[28px] bottom-0 left-[28px] w-[2px] bg-border-strong z-0">
              <div 
-               className="w-full bg-[var(--text-primary)] transition-[height] duration-300 ease-out"
+               className="w-full bg-text-primary transition-[height] duration-300 ease-out"
                style={{ height: `${(activeStep / 3) * 100}%` }}
              />
           </div>
@@ -124,14 +124,14 @@ export function Process() {
                   {/* Node Circle */}
                   <div className="flex-shrink-0 relative">
                     <div className={cn(
-                      "w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold font-display transition-[border-color,color] duration-500 relative z-10 border-2 bg-[var(--bg-secondary)]",
-                      isActive ? "border-[var(--text-primary)] text-[var(--text-primary)]" : "border-[var(--border-strong)] text-[var(--text-muted)]"
+                      "w-14 h-14 rounded-full flex items-center justify-center text-lg font-bold font-display transition-[border-color,color] duration-500 relative z-10 border-2 bg-bg-secondary",
+                      isActive ? "border-text-primary text-text-primary" : "border-border-strong text-text-muted"
                     )}>
                       {step.num}
                     </div>
                     {/* Glow effect */}
                     <div className={cn(
-                      "absolute inset-0 rounded-full bg-[var(--text-primary)] blur-md transition-opacity duration-500",
+                      "absolute inset-0 rounded-full bg-text-primary blur-md transition-opacity duration-500",
                       isCurrent ? "opacity-30" : "opacity-0"
                     )} />
                   </div>
@@ -140,12 +140,12 @@ export function Process() {
                   <div className="ml-8 md:ml-0 md:mt-8 md:text-center pt-2 md:pt-0">
                     <h3 className={cn(
                       "text-2xl font-bold font-display mb-3 transition-colors duration-500",
-                      isActive ? "text-[var(--text-primary)]" : "text-[var(--text-muted)]"
+                      isActive ? "text-text-primary" : "text-text-muted"
                     )}>
                       {step.title}
                     </h3>
                     <p className={cn(
-                      "text-[var(--text-secondary)] leading-relaxed transition-opacity duration-500 text-sm md:text-base",
+                      "text-text-secondary leading-relaxed transition-opacity duration-500 text-sm md:text-base",
                       isActive ? "opacity-100" : "opacity-0"
                     )}>
                       {step.desc}

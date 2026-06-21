@@ -39,18 +39,18 @@ export function Hero() {
         {/* Left 60% Text */}
         <div className="w-full md:w-[55%] flex flex-col items-start">
           <div className="overflow-hidden mb-6">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] hero-label opacity-0">
+            <div className="text-xs font-bold tracking-[0.2em] uppercase text-accent hero-label opacity-0">
               Software Development Studio
             </div>
           </div>
           
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold font-display leading-[1.05] tracking-tight mb-8">
-            <div className="overflow-hidden"><div className="hero-line" style={{ clipPath: "inset(100% 0 0 0)" }}>We Build</div></div>
-            <div className="overflow-hidden"><div className="hero-line" style={{ clipPath: "inset(100% 0 0 0)" }}>Software That</div></div>
-            <div className="overflow-hidden"><div className="hero-line" style={{ clipPath: "inset(100% 0 0 0)" }}>Matters.</div></div>
+            <div className="overflow-hidden"><div className="hero-line [clip-path:inset(100%_0_0_0)]">We Build</div></div>
+            <div className="overflow-hidden"><div className="hero-line [clip-path:inset(100%_0_0_0)]">Software That</div></div>
+            <div className="overflow-hidden"><div className="hero-line [clip-path:inset(100%_0_0_0)]">Matters.</div></div>
           </h1>
 
-          <p ref={subheadRef} className="text-lg md:text-xl text-[var(--text-secondary)] max-w-lg mb-12 leading-relaxed opacity-0">
+          <p ref={subheadRef} className="text-lg md:text-xl text-text-secondary max-w-lg mb-12 leading-relaxed opacity-0">
             From idea to launch, we craft bespoke SaaS platforms, custom web applications, and mobile apps for ambitious teams.
           </p>
 
@@ -61,22 +61,22 @@ export function Hero() {
 
           <div ref={statsRef} className="flex gap-12 opacity-0">
             <div>
-              <div className="text-3xl font-display font-bold text-[var(--text-primary)]">
-                <AnimatedCounter value={10} /><span className="text-[var(--accent)]">+</span>
+              <div className="text-3xl font-display font-bold text-text-primary">
+                <AnimatedCounter value={10} /><span className="text-accent">+</span>
               </div>
-              <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] mt-1">Products Built</div>
+              <div className="text-xs uppercase tracking-widest text-text-muted mt-1">Products Built</div>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-[var(--text-primary)]">
-                <AnimatedCounter value={99.9} decimals={1} /><span className="text-[var(--accent)]">%</span>
+              <div className="text-3xl font-display font-bold text-text-primary">
+                <AnimatedCounter value={99.9} decimals={1} /><span className="text-accent">%</span>
               </div>
-              <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] mt-1">Uptime</div>
+              <div className="text-xs uppercase tracking-widest text-text-muted mt-1">Uptime</div>
             </div>
             <div>
-              <div className="text-3xl font-display font-bold text-[var(--text-primary)]">
-                <AnimatedCounter value={24} /><span className="text-[var(--text-muted)]">/7</span>
+              <div className="text-3xl font-display font-bold text-text-primary">
+                <AnimatedCounter value={24} /><span className="text-text-muted">/7</span>
               </div>
-              <div className="text-xs uppercase tracking-widest text-[var(--text-muted)] mt-1">Support</div>
+              <div className="text-xs uppercase tracking-widest text-text-muted mt-1">Support</div>
             </div>
           </div>
         </div>
@@ -84,10 +84,7 @@ export function Hero() {
         {/* Right 45% Visual - 3D Glass Image */}
         <div className="hidden md:block w-[45%] h-[60vh] relative perspective-1000">
           <div 
-            className="absolute inset-0 bg-transparent rounded-sm overflow-hidden transition-transform duration-1000 flex items-center justify-center" 
-            style={{ transform: "rotateY(-10deg) rotateX(5deg)" }} 
-            onMouseEnter={(e) => e.currentTarget.style.transform = "rotateY(0deg) rotateX(0deg) scale(1.02)"} 
-            onMouseLeave={(e) => e.currentTarget.style.transform = "rotateY(-10deg) rotateX(5deg) scale(1)"}
+            className="absolute inset-0 bg-transparent rounded-sm overflow-hidden transition-transform duration-1000 flex items-center justify-center transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 hover:scale-[1.02]"
           >
             <img 
               src="/hero-glass.png" 

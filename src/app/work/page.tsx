@@ -76,7 +76,7 @@ export default function WorkPage() {
   return (
     <div ref={containerRef} className="w-full min-h-screen px-8 md:px-16 pt-8 pb-32">
       <div className="max-w-7xl mx-auto">
-        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
           OUR PORTFOLIO
         </div>
         <h1 className="page-header text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight mb-16 opacity-0 max-w-3xl">
@@ -84,11 +84,10 @@ export default function WorkPage() {
         </h1>
 
         {/* Filter Tabs */}
-        <div className="filter-container relative flex items-center gap-2 mb-16 pb-4 border-b border-[var(--border)] overflow-x-auto opacity-0 hide-scrollbar">
+        <div className="filter-container relative flex items-center gap-2 mb-16 pb-4 border-b border-border overflow-x-auto opacity-0 hide-scrollbar">
           <div 
             ref={pillRef} 
-            className="filter-tab-bg" 
-            style={{ width: 0, x: 0 }}
+            className="filter-tab-bg w-0" 
           />
           {categories.map((cat, i) => (
             <button
@@ -97,7 +96,7 @@ export default function WorkPage() {
               onClick={() => setActiveCategory(cat)}
               className={cn(
                 "filter-tab text-sm font-medium tracking-wide uppercase whitespace-nowrap",
-                activeCategory === cat ? "active" : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                activeCategory === cat ? "active" : "text-text-secondary hover:text-text-primary"
               )}
               onMouseEnter={() => setCursorState("button", "FILTER")}
               onMouseLeave={() => setCursorState("default")}
@@ -117,19 +116,19 @@ export default function WorkPage() {
               onMouseEnter={() => setCursorState("button", "VIEW")}
               onMouseLeave={() => setCursorState("default")}
             >
-              <div className="w-full aspect-[4/5] relative bg-[var(--bg-tertiary)] border-none">
+              <div className="w-full aspect-[4/5] relative bg-bg-tertiary border-none">
                 <img src={project.image} alt={project.title} className="work-card-image absolute inset-0 w-full h-full object-cover" />
                 
                 <div className="work-card-content">
-                  <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-2">
+                  <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-2">
                     {project.category}
                   </div>
-                  <h3 className="work-card-title text-3xl font-bold font-display text-[var(--text-primary)] mb-4">
+                  <h3 className="work-card-title text-3xl font-bold font-display text-text-primary mb-4">
                     {project.title}
                   </h3>
                   <div className="work-card-tags">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[10px] uppercase tracking-wider px-3 py-1 border border-[var(--border-strong)] rounded-full text-[var(--text-muted)] bg-[var(--bg-primary)]/50 backdrop-blur-sm">
+                      <span key={tag} className="text-[10px] uppercase tracking-wider px-3 py-1 border border-border-strong rounded-full text-text-muted bg-bg-primary/50 backdrop-blur-sm">
                         {tag}
                       </span>
                     ))}

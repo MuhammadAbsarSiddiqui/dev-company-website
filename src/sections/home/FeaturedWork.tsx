@@ -93,30 +93,30 @@ export function FeaturedWork() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-40 px-8 md:px-16 w-full bg-[var(--bg-secondary)] border-t border-[var(--border)] overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-40 px-8 md:px-16 w-full bg-bg-secondary border-t border-border overflow-hidden">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-3xl">
-            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
               SELECTED WORK
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-display leading-[1.05] tracking-tight mb-8 opacity-0">
               Products We&apos;ve Built.
             </h2>
-            <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed opacity-0 max-w-xl">
+            <p className="text-lg md:text-xl text-text-secondary leading-relaxed opacity-0 max-w-xl">
               Explore our featured SaaS applications, custom platforms, and mobile apps built to scale.
             </p>
           </div>
           <div className="view-all-link opacity-0 pb-2">
             <Link 
               href="/work" 
-              className="group flex items-center gap-3 text-[var(--text-primary)] font-bold tracking-widest text-xs uppercase"
+              className="group flex items-center gap-3 text-text-primary font-bold tracking-widest text-xs uppercase"
               onMouseEnter={() => setCursorState("link")}
               onMouseLeave={() => setCursorState("default")}
             >
-              <span className="border-b border-[var(--text-primary)] pb-1 transition-colors hover:text-[var(--accent)] hover:border-[var(--accent)]">View All Projects</span>
+              <span className="border-b border-text-primary pb-1 transition-colors hover:text-accent hover:border-accent">View All Projects</span>
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
@@ -136,7 +136,7 @@ export function FeaturedWork() {
               onMouseLeave={() => setCursorState("default")}
             >
               {/* Work Card Container */}
-              <div className="work-card opacity-0 relative w-full aspect-[4/5] rounded-sm bg-[var(--bg-tertiary)]">
+              <div className="work-card opacity-0 relative w-full aspect-[4/5] rounded-sm bg-bg-tertiary">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -145,17 +145,17 @@ export function FeaturedWork() {
                 
                 {/* Overlay Content */}
                 <div className="work-card-content">
-                  <span className="work-card-title text-[10px] font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-2">
+                  <span className="work-card-title text-[10px] font-bold tracking-[0.2em] uppercase text-accent mb-2">
                     {project.category}
                   </span>
-                  <h3 className="work-card-title text-3xl md:text-4xl font-display font-bold text-[var(--text-primary)] mb-4">
+                  <h3 className="work-card-title text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">
                     {project.title}
                   </h3>
                   <div className="work-card-tags">
                     {project.tags.map(tag => (
                       <span 
                         key={tag} 
-                        className="text-[10px] uppercase tracking-wider px-3 py-1 bg-[var(--bg-primary)] border border-[var(--border-strong)] rounded-full text-[var(--text-primary)]"
+                        className="text-[10px] uppercase tracking-wider px-3 py-1 bg-bg-primary border border-border-strong rounded-full text-text-primary"
                       >
                         {tag}
                       </span>

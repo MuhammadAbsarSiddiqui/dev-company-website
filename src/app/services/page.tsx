@@ -17,7 +17,7 @@ export default function ServicesPage() {
   return (
     <div ref={containerRef} className="w-full min-h-screen pt-8">
       <div className="max-w-7xl mx-auto px-8 md:px-16 mb-16">
-        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
           CAPABILITIES
         </div>
         <h1 className="page-header text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight opacity-0 max-w-4xl">

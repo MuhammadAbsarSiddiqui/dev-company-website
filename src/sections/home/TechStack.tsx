@@ -44,13 +44,13 @@ export function TechStack() {
     <section ref={sectionRef} className="py-24 md:py-32 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-16 mb-20">
         <div ref={headerRef} className="max-w-3xl">
-          <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+          <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
             TECH STACK
           </div>
           <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1] mb-6 opacity-0">
             Built With the Best.
           </h2>
-          <p className="text-lg text-[var(--text-secondary)] leading-relaxed opacity-0">
+          <p className="text-lg text-text-secondary leading-relaxed opacity-0">
             We choose fast, modern, and reliable tools to build products that scale without friction.
           </p>
         </div>
@@ -66,7 +66,7 @@ export function TechStack() {
             {[...row1, ...row1].map((item, i) => (
               <div 
                 key={`${item}-${i}`} 
-                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border-strong)] bg-[var(--bg-primary)]/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-[var(--bg-secondary)] transition-all duration-300 cursor-none"
+                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-border-strong bg-bg-primary/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-text-secondary hover:text-text-primary hover:border-text-primary hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-bg-secondary transition-all duration-300 cursor-none"
               >
                 {item}
               </div>
@@ -83,7 +83,7 @@ export function TechStack() {
             {[...row2, ...row2].map((item, i) => (
               <div 
                 key={`${item}-${i}`} 
-                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-[var(--border-strong)] bg-[var(--bg-primary)]/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:border-[var(--text-primary)] hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-[var(--bg-secondary)] transition-all duration-300 cursor-none"
+                className="shrink-0 px-6 py-3 md:px-8 md:py-4 rounded-full border border-border-strong bg-bg-primary/80 backdrop-blur-md shadow-md text-lg md:text-xl font-bold font-display text-text-secondary hover:text-text-primary hover:border-text-primary hover:scale-110 hover:-translate-y-1 hover:shadow-xl hover:bg-bg-secondary transition-all duration-300 cursor-none"
               >
                 {item}
               </div>

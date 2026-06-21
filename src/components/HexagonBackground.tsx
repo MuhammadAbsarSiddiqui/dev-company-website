@@ -2,7 +2,7 @@ import { memo } from "react";
 
 export const HexagonBackground = memo(function HexagonBackground() {
   return (
-    <div className="fixed inset-0 z-[-1] pointer-events-none bg-[var(--bg-primary)] overflow-hidden">
+    <div className="fixed inset-0 z-[-1] pointer-events-none bg-bg-primary overflow-hidden">
       
       {/* 
         ULTIMATE GPU PERFORMANCE UPGRADE:
@@ -24,14 +24,7 @@ export const HexagonBackground = memo(function HexagonBackground() {
       `}</style>
       
       <div 
-        className="hex-layer absolute transition-opacity duration-500" 
-        style={{
-          opacity: "var(--voronoi-opacity)",
-          top: "-208px",
-          left: "-120px",
-          width: "calc(100% + 240px)",
-          height: "calc(100% + 416px)"
-        }}
+        className="hex-layer absolute transition-opacity duration-500 [opacity:var(--voronoi-opacity)] top-[-208px] left-[-120px] w-[calc(100%+240px)] h-[calc(100%+416px)]" 
       >
         <svg className="w-full h-full">
           <defs>
@@ -66,7 +59,7 @@ export const HexagonBackground = memo(function HexagonBackground() {
       </div>
 
       {/* Dimming overlay to push background back into layout depth */}
-      <div className="absolute inset-0 bg-[var(--bg-primary)] opacity-20" />
+      <div className="absolute inset-0 bg-bg-primary opacity-20" />
       
     </div>
   );

@@ -29,7 +29,7 @@ export function Navigation() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-[height,background-color,backdrop-filter,border-color] duration-300 ease-out flex items-center px-8 md:px-16",
         scrolled
-          ? "h-[60px] bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border)]"
+          ? "h-[60px] bg-bg-primary/80 backdrop-blur-md border-b border-border"
           : "h-[80px] bg-transparent border-b-transparent"
       )}
     >
@@ -48,18 +48,18 @@ export function Navigation() {
               <Link
               key={link.path}
               href={link.path}
-              className="nav-link text-sm font-medium tracking-wide uppercase text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-300"
+              className="nav-link text-sm font-medium tracking-wide uppercase text-text-secondary hover:text-text-primary transition-colors duration-300"
               onMouseEnter={() => setCursorState("link")}
               onMouseLeave={() => setCursorState("default")}
             >
               <span>{link.name}</span>
-              <span className="text-[var(--text-primary)]">{link.name}</span>
+              <span className="text-text-primary">{link.name}</span>
             </Link>
           ))}
           
           <button 
             onClick={toggleTheme}
-            className="p-2 ml-4 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+            className="p-2 ml-4 rounded-full hover:bg-bg-secondary transition-colors"
             onMouseEnter={() => setCursorState("button", "THEME")}
             onMouseLeave={() => setCursorState("default")}
           >

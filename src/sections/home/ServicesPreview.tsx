@@ -80,13 +80,13 @@ export function ServicesPreview() {
         {/* Header - Sticky on desktop */}
         <div ref={headerRef} className="w-full lg:w-1/3">
           <div className="lg:sticky lg:top-32">
-            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+            <div className="section-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
               WHAT WE DO
             </div>
             <h2 className="text-4xl md:text-5xl font-bold font-display leading-[1.1] mb-6 opacity-0">
               Full-Stack Software Services.
             </h2>
-            <p className="text-lg text-[var(--text-secondary)] leading-relaxed mb-8 opacity-0">
+            <p className="text-lg text-text-secondary leading-relaxed mb-8 opacity-0">
               We deliver end-to-end design, development, and scaling for modern digital products.
             </p>
           </div>
@@ -105,14 +105,14 @@ export function ServicesPreview() {
                 onClick={() => setActiveId(service.id)}
                 className={cn(
                   "service-card rounded-sm",
-                  isActive ? "active" : "bg-[var(--bg-primary)]"
+                  isActive ? "active" : "bg-bg-primary"
                 )}
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 onMouseEnter={() => !isActive && setCursorState("button", "EXPAND")}
                 onMouseLeave={() => setCursorState("default")}
               >
                 <motion.div layout className="p-6 md:p-8 flex items-center gap-4 md:gap-6">
-                  <div className={cn("p-4 rounded-full transition-colors duration-500", isActive ? "bg-[var(--text-primary)] text-[var(--bg-primary)]" : "bg-[var(--bg-tertiary)] text-[var(--text-secondary)]")}>
+                  <div className={cn("p-4 rounded-full transition-colors duration-500", isActive ? "bg-text-primary text-bg-primary" : "bg-bg-tertiary text-text-secondary")}>
                     <Icon size={24} className="service-card-icon shrink-0" />
                   </div>
                   <motion.h3 layout className="text-xl md:text-2xl font-bold font-display flex-grow">
@@ -121,7 +121,7 @@ export function ServicesPreview() {
                   <motion.div
                     animate={{ rotate: isActive ? 90 : 0 }}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    className="text-[var(--text-muted)] shrink-0 hidden sm:block"
+                    className="text-text-muted shrink-0 hidden sm:block"
                   >
                     <ArrowRight size={24} />
                   </motion.div>
@@ -140,7 +140,7 @@ export function ServicesPreview() {
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.1 }}
-                          className="text-[var(--text-secondary)] leading-relaxed mb-6"
+                          className="text-text-secondary leading-relaxed mb-6"
                         >
                           {service.desc}
                         </motion.p>
@@ -149,7 +149,7 @@ export function ServicesPreview() {
                           <div>
                             <motion.h4 
                               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-                              className="text-[10px] font-bold tracking-widest uppercase text-[var(--text-muted)] mb-3"
+                              className="text-[10px] font-bold tracking-widest uppercase text-text-muted mb-3"
                             >
                               Features
                             </motion.h4>
@@ -160,9 +160,9 @@ export function ServicesPreview() {
                                   initial={{ opacity: 0, x: -10 }}
                                   animate={{ opacity: 1, x: 0 }}
                                   transition={{ delay: 0.2 + (i * 0.05) }}
-                                  className="text-sm text-[var(--text-primary)] flex items-center gap-2"
+                                  className="text-sm text-text-primary flex items-center gap-2"
                                 >
-                                  <div className="w-1 h-1 rounded-full bg-[var(--accent)] shrink-0" />
+                                  <div className="w-1 h-1 rounded-full bg-accent shrink-0" />
                                   {feat}
                                 </motion.li>
                               ))}
@@ -171,13 +171,13 @@ export function ServicesPreview() {
                           <div>
                             <motion.h4 
                               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-                              className="text-[10px] font-bold tracking-widest uppercase text-[var(--text-muted)] mb-3"
+                              className="text-[10px] font-bold tracking-widest uppercase text-text-muted mb-3"
                             >
                               Tech Stack
                             </motion.h4>
                             <motion.p 
                               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }}
-                              className="text-sm text-[var(--text-primary)]"
+                              className="text-sm text-text-primary"
                             >
                               {service.stack}
                             </motion.p>

@@ -35,23 +35,23 @@ export function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="relative min-h-[40vh] bg-[var(--bg-secondary)] text-[var(--text-primary)] pt-24 pb-8 px-8 md:px-16 overflow-hidden border-t border-[var(--border)] mt-24">
+    <footer ref={footerRef} className="relative min-h-[40vh] bg-bg-secondary text-text-primary pt-24 pb-8 px-8 md:px-16 overflow-hidden border-t border-border mt-24">
       <div className="max-w-7xl mx-auto flex flex-col justify-between h-full relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-24">
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-2xl font-bold font-display uppercase tracking-tighter mb-4">DS DevStudio</h3>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-6">
+            <p className="text-text-secondary text-sm leading-relaxed mb-6">
               We partner with ambitious teams to build world-class software products. End-to-end engineering from concept to scale.
             </p>
           </div>
           
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">Company</h4>
+            <h4 className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-6">Company</h4>
             <ul className="space-y-3 text-sm">
               {['Work', 'Services', 'About', 'Blog', 'Contact'].map(item => (
                 <li key={item}>
-                  <Link href={`/${item.toLowerCase()}`} className="hover:text-[var(--accent)] transition-colors"
+                  <Link href={`/${item.toLowerCase()}`} className="hover:text-accent transition-colors"
                     onMouseEnter={() => setCursorState("link")}
                     onMouseLeave={() => setCursorState("default")}
                   >{item}</Link>
@@ -61,8 +61,8 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">Services</h4>
-            <ul className="space-y-3 text-sm text-[var(--text-secondary)]">
+            <h4 className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-6">Services</h4>
+            <ul className="space-y-3 text-sm text-text-secondary">
               <li>SaaS Platforms</li>
               <li>Web Applications</li>
               <li>Mobile Apps</li>
@@ -71,15 +71,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] mb-6">Newsletter</h4>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4">
+            <h4 className="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-6">Newsletter</h4>
+            <p className="text-text-secondary text-sm leading-relaxed mb-4">
               Subscribe to our weekly dispatch of software engineering insights, case studies, and tools.
             </p>
-            <div className="flex border-b border-[var(--border-strong)] focus-within:border-[var(--text-primary)] transition-colors">
+            <div className="flex border-b border-border-strong focus-within:border-text-primary transition-colors">
               <input 
                 type="email" 
                 placeholder="Email Address" 
-                className="w-full bg-transparent py-2 text-sm outline-none placeholder-[var(--text-muted)]" 
+                className="w-full bg-transparent py-2 text-sm outline-none placeholder-text-muted" 
               />
               <button className="p-2"
                 onMouseEnter={() => setCursorState("button")}
@@ -91,13 +91,13 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-[var(--text-muted)] border-t border-[var(--border)] pt-8">
+        <div className="flex flex-col md:flex-row justify-between items-center text-xs text-text-muted border-t border-border pt-8">
           <p>© 2026 DevStudio. All rights reserved. Built with Next.js & GSAP.</p>
           <div className="flex items-center space-x-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="hover:text-[var(--text-primary)] transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-[var(--text-primary)] transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-text-primary transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-text-primary transition-colors">Terms of Service</Link>
             
-            <div className="flex items-center gap-4 ml-8 border-l border-[var(--border)] pl-8">
+            <div className="flex items-center gap-4 ml-8 border-l border-border pl-8">
               {['Twitter', 'GitHub', 'LinkedIn'].map((social) => (
                 <a 
                   key={social} 

@@ -101,7 +101,7 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-[var(--bg-tertiary)] border border-[var(--border)] relative perspective-1000">
+      <div className="w-full aspect-[4/3] rounded-sm overflow-hidden bg-bg-tertiary border border-border relative perspective-1000">
         <img 
           ref={imageRef}
           src={post.image} 
@@ -110,12 +110,12 @@ function BlogCard({ post }: { post: typeof posts[0] }) {
         />
       </div>
       <div className="flex flex-col gap-3">
-        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-[var(--text-muted)]">
-          <span className="text-[var(--accent)]">{post.category}</span>
-          <span className="w-1 h-1 rounded-full bg-[var(--border-strong)]" />
+        <div className="flex items-center gap-3 text-xs font-bold tracking-widest uppercase text-text-muted">
+          <span className="text-accent">{post.category}</span>
+          <span className="w-1 h-1 rounded-full bg-border-strong" />
           <span>{post.date}</span>
         </div>
-        <h3 className="text-2xl font-bold font-display text-[var(--text-primary)] leading-snug transition-colors duration-300 group-hover:text-[var(--accent)]">
+        <h3 className="text-2xl font-bold font-display text-text-primary leading-snug transition-colors duration-300 group-hover:text-accent">
           {post.title}
         </h3>
       </div>
@@ -137,7 +137,7 @@ export default function BlogPage() {
   return (
     <div ref={containerRef} className="w-full min-h-screen px-8 md:px-16 pt-8 pb-32">
       <div className="max-w-7xl mx-auto">
-        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+        <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
           INSIGHTS & ENGINEERING
         </div>
         <h1 className="page-header text-5xl md:text-7xl lg:text-8xl font-bold font-display leading-tight mb-24 opacity-0 max-w-4xl">

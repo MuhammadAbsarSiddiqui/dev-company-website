@@ -66,7 +66,7 @@ export function Philosophy() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 items-center">
         <div className="w-full md:w-1/2">
           
-          <div className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 h-4 flex flex-wrap">
+          <div className="text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 h-4 flex flex-wrap">
             {"OUR PHILOSOPHY".split('').map((char, i) => (
               <span key={i} className="label-char opacity-0">{char === " " ? "\u00A0" : char}</span>
             ))}
@@ -74,23 +74,23 @@ export function Philosophy() {
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-8">
             {"We partner with ambitious teams to build software that matters.".split(' ').map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden mr-[0.25em]" style={{ verticalAlign: 'top' }}>
+              <span key={i} className="inline-block overflow-hidden mr-[0.25em] align-top">
                 <span className="word inline-block">{word}</span>
               </span>
             ))}
           </h2>
 
-          <p ref={bodyRef} className="text-lg text-[var(--text-secondary)] leading-relaxed max-w-lg opacity-0">
+          <p ref={bodyRef} className="text-lg text-text-secondary leading-relaxed max-w-lg opacity-0">
             No templates. No shortcuts. Every project is built from first principles, with obsessive attention to performance, design, and maintainability. From system architecture to micro-interactions, we ensure every detail of your product screams quality.
           </p>
         </div>
         
         <div className="w-full md:w-1/2 perspective-1000">
-          <div ref={mediaRef} className="opacity-0 bg-[var(--bg-secondary)] border border-[var(--border)] rounded-sm p-6 md:p-8 font-mono text-sm sm:text-base leading-relaxed overflow-hidden shadow-2xl transform rotate-y-[5deg] rotate-x-[2deg] transition-transform duration-700 hover:rotate-0">
+          <div ref={mediaRef} className="opacity-0 bg-bg-secondary border border-border rounded-sm p-6 md:p-8 font-mono text-sm sm:text-base leading-relaxed overflow-hidden shadow-2xl transform rotate-y-[5deg] rotate-x-[2deg] transition-transform duration-700 hover:rotate-0">
             <div className="flex gap-2 mb-6">
-              <div className="w-3 h-3 rounded-full bg-[var(--border-strong)]" />
-              <div className="w-3 h-3 rounded-full bg-[var(--border-strong)]" />
-              <div className="w-3 h-3 rounded-full bg-[var(--border-strong)]" />
+              <div className="w-3 h-3 rounded-full bg-border-strong" />
+              <div className="w-3 h-3 rounded-full bg-border-strong" />
+              <div className="w-3 h-3 rounded-full bg-border-strong" />
             </div>
             <CodeTypingEffect />
           </div>
@@ -141,10 +141,10 @@ function CodeTypingEffect() {
   }, []);
 
   return (
-    <div className="text-[var(--text-muted)] h-[280px]">
+    <div className="text-text-muted h-[280px]">
       {lines.map((line, i) => (
-        <div key={i} className="animate-fade-in opacity-0" style={{ animationFillMode: "forwards" }}>
-          {(line || '').replace(/('.*?')/g, '<span class="text-[var(--accent)] opacity-80">$1</span>')
+        <div key={i} className="animate-fade-in opacity-0 [animation-fill-mode:forwards]">
+          {(line || '').replace(/('.*?')/g, '<span class="text-accent opacity-80">$1</span>')
                .replace(/\b(import|from|const|new|true|then)\b/g, '<span class="text-blue-400">$1</span>')
                .replace(/\b(Architecture|console)\b/g, '<span class="text-purple-400">$1</span>')
                .split('\n')
@@ -152,7 +152,7 @@ function CodeTypingEffect() {
         </div>
       ))}
       <div className="inline-block mt-1">
-        <span className={cn("inline-block w-2 h-4 bg-[var(--accent)] ml-1 align-middle transition-opacity duration-100", cursorVisible ? "opacity-100" : "opacity-0")} />
+        <span className={cn("inline-block w-2 h-4 bg-accent ml-1 align-middle transition-opacity duration-100", cursorVisible ? "opacity-100" : "opacity-0")} />
       </div>
     </div>
   );

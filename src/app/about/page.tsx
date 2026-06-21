@@ -20,13 +20,13 @@ export default function AboutPage() {
     <div ref={containerRef} className="w-full min-h-screen px-8 md:px-16 pt-8 pb-32">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16">
         <div className="w-full md:w-1/2">
-          <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-[var(--accent)] mb-6 opacity-0">
+          <div className="page-label text-xs font-bold tracking-[0.2em] uppercase text-accent mb-6 opacity-0">
             OUR STORY
           </div>
           <h1 className="page-header text-5xl md:text-7xl font-bold font-display leading-tight mb-8 opacity-0">
             Built by engineers, for engineers.
           </h1>
-          <div className="page-body space-y-6 text-lg text-[var(--text-secondary)] leading-relaxed opacity-0">
+          <div className="page-body space-y-6 text-lg text-text-secondary leading-relaxed opacity-0">
             <p>
               DevStudio was founded on a simple premise: most software agencies prioritize speed and templates over quality and maintainability. We wanted to build a place where engineering excellence is the default, not an upsell.
             </p>
@@ -43,7 +43,7 @@ export default function AboutPage() {
         </div>
         
         <div className="w-full md:w-1/2">
-          <div className="page-body w-full aspect-square rounded-sm overflow-hidden bg-[var(--bg-secondary)] border border-[var(--border)] opacity-0 perspective-1000">
+          <div className="page-body w-full aspect-square rounded-sm overflow-hidden bg-bg-secondary border border-border opacity-0 perspective-1000">
             <img 
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200" 
               alt="Team collaborating" 

@@ -90,9 +90,9 @@ export function MagneticButton({
 
   const baseStyles = "relative inline-flex items-center justify-center px-6 py-3 font-medium rounded-sm transition-colors duration-300";
   const variants = {
-    primary: "magnetic-button border border-[var(--text-primary)] text-[var(--text-primary)]",
-    secondary: "bg-[var(--bg-secondary)] text-[var(--text-primary)] border border-[var(--border)] hover:border-[var(--text-primary)]",
-    ghost: "bg-transparent text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]"
+    primary: "magnetic-button border border-text-primary text-text-primary",
+    secondary: "bg-bg-secondary text-text-primary border border-border hover:border-text-primary",
+    ghost: "bg-transparent text-text-primary hover:bg-bg-secondary"
   };
 
   return (
